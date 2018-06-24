@@ -21,10 +21,10 @@ public class SoapServlet extends CXFNonSpringServlet {
 		super.loadBus(sc);
 		Bus bus = getBus();
 		BusFactory.setDefaultBus(bus);
-		publicSoapService();
+		publishSoapService();
 	}
 
-	private void publicSoapService() {
+	private void publishSoapService() {
 		Set<Class<?>> soapClassSet = ClassHelper.getClassSetByAnnotation(Soap.class);
 		if (CollectionUtil.isNotEmpty(soapClassSet)) {
 			for (Class<?> soapClass : soapClassSet) {
